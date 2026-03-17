@@ -2,42 +2,6 @@
 
 Generate a Markdown changelog for a GitHub repository using prebuilt [`chlogr`](https://github.com/christianhelle/chlogr) binaries.
 
-Instead of installing Ruby and `github_changelog_generator` on every run, this action resolves the right `chlogr` release for the current runner, downloads the native binary, and executes it directly. That keeps the workflow fast, predictable, and easier to support across runners.
-
-## Why this action?
-
-Your older Refitter workflow had to:
-
-- install Ruby
-- install a changelog gem on every run
-- depend on a slower toolchain before generating anything
-
-This action keeps the workflow lean:
-
-- no Ruby setup
-- no gem installation
-- no local build of `chlogr`
-- no shell-specific wrapper logic in user workflows
-
-## Wrapper strategy
-
-This action uses a small JavaScript wrapper instead of a composite action.
-
-That is intentional:
-
-- JavaScript is better for release discovery and asset selection than shell scripting.
-- The wrapper can reliably map the current runner OS and architecture to the correct `chlogr` asset.
-- It avoids quoting and path differences between Bash and PowerShell.
-- It can expose stable action outputs like `changed` and `changelog-path`.
-
-The wrapper flow is:
-
-1. Resolve the requested `chlogr` version, or `latest`.
-2. Detect the current runner platform and architecture.
-3. Download the matching release asset from `christianhelle/chlogr`.
-4. Extract the binary and execute `chlogr`.
-5. Write the generated changelog file and expose outputs for downstream steps.
-
 ## Usage
 
 ### Generate `CHANGELOG.md` for the current repository
