@@ -1,0 +1,25 @@
+{
+  "universe_usage_history": [
+    {
+      "assignment_id": "2026-03-17-changelog-generator-action",
+      "universe": "The Matrix",
+      "created_at": "2026-03-17T12:19:02.4190715Z",
+      "team_root": "C:\\projects\\christianhelle\\changelog-generator-action"
+    }
+  ],
+  "assignment_cast_snapshots": {
+    "2026-03-17-changelog-generator-action": {
+      "universe": "The Matrix",
+      "created_at": "2026-03-17T12:19:02.4190715Z",
+      "members": [
+        "Morpheus",
+        "Trinity",
+        "Tank",
+        "Switch",
+        "Link",
+        "Scribe",
+        "Ralph"
+      ]
+    }
+  }
+}
