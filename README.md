@@ -1,4 +1,4 @@
-# changelog-generator-action
+# Changelog Generator Action
 
 Generate a Markdown changelog for a GitHub repository using prebuilt [`chlogr`](https://github.com/christianhelle/chlogr) binaries.
 
