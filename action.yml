@@ -1,0 +1,46 @@
+name: Generate changelog with chlogr
+description: Generate a Markdown changelog for a GitHub repository using the chlogr CLI.
+author: Christian Helle
+
+branding:
+  icon: book-open
+  color: blue
+
+inputs:
+  repo:
+    description: GitHub repository to generate the changelog for, in owner/repo format.
+    required: false
+    default: ${{ github.repository }}
+  github-token:
+    description: GitHub token used to query GitHub and resolve chlogr releases.
+    required: false
+    default: ${{ github.token }}
+  output:
+    description: Path to the generated changelog file, relative to the workspace unless absolute.
+    required: false
+    default: CHANGELOG.md
+  since-tag:
+    description: Only include changes after this tag.
+    required: false
+  until-tag:
+    description: Only include changes up to this tag.
+    required: false
+  exclude-labels:
+    description: Comma-separated labels to exclude from the generated changelog.
+    required: false
+  chlogr-version:
+    description: chlogr release tag to use, or latest.
+    required: false
+    default: latest
+
+outputs:
+  changelog-path:
+    description: Absolute path to the generated changelog file.
+  changed:
+    description: Whether the generated changelog content changed compared to the previous file contents.
+  chlogr-version:
+    description: The resolved chlogr release tag used for generation.
+
+runs:
+  using: node20
+  main: src/index.js
