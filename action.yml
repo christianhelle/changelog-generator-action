@@ -42,5 +42,5 @@ outputs:
     description: The resolved chlogr release tag used for generation.
 
 runs:
-  using: node20
+  using: node24
   main: src/index.js
