@@ -9,7 +9,7 @@ const ACTION_USER_AGENT = 'christianhelle/changelog-generator-action';
 const CHLOGR_RELEASE_REPOSITORY = 'christianhelle/chlogr';
 
 function getInput(name) {
-  const key = `INPUT_${name.replace(/ /g, '_').replace(/-/g, '_').toUpperCase()}`;
+  const key = `INPUT_${name.replace(/ /g, '_').toUpperCase()}`;
   return (process.env[key] ?? '').trim();
 }
 
